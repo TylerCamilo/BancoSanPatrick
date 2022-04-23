@@ -1,0 +1,19 @@
+{
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/api/v1/users",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamHostAndPorts" : [
+        {
+          "Host": "google.com",
+          "Port": 443
+        }
+      ],
+      "DownstreamPathTemplate": "/"
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:7074"
+  }
+
+}
