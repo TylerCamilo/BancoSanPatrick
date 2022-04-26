@@ -1,19 +1,31 @@
 {
-  "Routes": [
-    {
-      "UpstreamPathTemplate": "/api/v1/users",
-      "UpstreamHttpMethod": [ "GET" ],
-      "DownstreamHostAndPorts" : [
+  "Routes": [ // arrive
+    { // servicio de users
+      "UpstreamPathTemplate": "/api/v1/users", // llama  al microservicio 
+      "UpstreamHttpMethod": [ "GET" ], // arrive metodo que llama al endpoint
+      "DownstreamHostAndPorts": [
         {
           "Host": "google.com",
           "Port": 443
         }
       ],
       "DownstreamPathTemplate": "/"
+    },
+    {
+      //transactions
+      "UpstreamPathTemplate": "/api/v1/transactions", // llama  al microservicio 
+      "UpstreamHttpMethod": [ "POS" ], // arrive metodo que llama al endpoint
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "45.79.197.213/hola",
+          "Port": 5000
+        }
+      ],
+      "DownstreamPathTemplate": "/"
     }
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "https://localhost:7074"
+    "BaseUrl": "http://45.79.197.213" // 
   }
 
 }

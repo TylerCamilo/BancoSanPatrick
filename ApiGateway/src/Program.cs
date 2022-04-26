@@ -3,11 +3,11 @@ using Ocelot.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//Adding Ocelot service
-builder.Services.AddOcelot();
+//Adding Ocelot service  
+builder.Services.AddOcelot(); //inyectando dependencia  del using 
 
 
-//Adding the Logging
+//Adding the Logging   //  para  hace debuggeo  
 builder.Host.ConfigureLogging((hostingContext, logginBuilder) =>
 {
     logginBuilder.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
@@ -23,6 +23,6 @@ builder.Host.ConfigureAppConfiguration((hosting, config) =>
 var app = builder.Build();
 
 app.UseOcelot().Wait();
-app.MapGet("/", () => "Hello World!");
+//app.MapGet("/", () => "Hello World!");
 
 app.Run();
