@@ -1,11 +1,26 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
 //Adding Ocelot service
 builder.Services.AddOcelot();
 
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).
+    AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            ValidateIssuer = false,
+            ValidateAudience = false,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("giugigiugiugiugiuigiguiugiugiui6r67677er67ee76e76e")),
+            ClockSkew = new System.TimeSpan(0)
+        };
+    });
 
 //Adding the Logging
 builder.Host.ConfigureLogging((hostingContext, logginBuilder) =>
@@ -22,6 +37,7 @@ builder.Host.ConfigureAppConfiguration((hosting, config) =>
 
 var app = builder.Build();
 
+app.UseAuthentication();
 app.UseOcelot().Wait();
 app.MapGet("/", () => "Hello World!");
 
