@@ -6,8 +6,8 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//Adding Ocelot service
-builder.Services.AddOcelot();
+//Adding Ocelot service  
+builder.Services.AddOcelot(); //inyectando dependencia  del using 
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).
     AddJwtBearer(options =>
@@ -22,7 +22,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).
         };
     });
 
-//Adding the Logging
+//Adding the Logging   //  para  hace debuggeo  
 builder.Host.ConfigureLogging((hostingContext, logginBuilder) =>
 {
     logginBuilder.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
@@ -39,6 +39,6 @@ var app = builder.Build();
 
 app.UseAuthentication();
 app.UseOcelot().Wait();
-app.MapGet("/", () => "Hello World!");
+//app.MapGet("/", () => "Hello World!");
 
 app.Run();
