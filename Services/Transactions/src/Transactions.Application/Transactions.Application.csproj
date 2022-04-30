@@ -15,11 +15,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Features\Cards\Commands\DeleteCardCommand\" />
+    <Folder Include="Features\Cards\Commands\UpdateCardCommand\" />
+    <Folder Include="Features\Cards\Queries\GetAllCards\" />
+    <Folder Include="Features\Cards\Queries\GetCardById\" />
     <Folder Include="Filters\" />
-    <Folder Include="Wrappers\" />
     <Folder Include="Mappings\" />
-    <Folder Include="Interfaces\" />
-    <Folder Include="Features\" />
     <Folder Include="DTOs\" />
   </ItemGroup>
 
