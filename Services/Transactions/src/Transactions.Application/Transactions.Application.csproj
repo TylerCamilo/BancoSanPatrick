@@ -16,10 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Cards\Commands\DeleteCardCommand\" />
-    <Folder Include="Features\Cards\Commands\UpdateCardCommand\" />
-    <Folder Include="Features\Cards\Queries\GetAllCards\" />
-    <Folder Include="Features\Cards\Queries\GetCardById\" />
+    <Folder Include="Features\Transactions\Queries\GetAllTransactions\" />
+    <Folder Include="Features\Transactions\Queries\GetTransactionById\" />
     <Folder Include="Filters\" />
     <Folder Include="Mappings\" />
     <Folder Include="DTOs\" />

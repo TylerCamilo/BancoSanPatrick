@@ -1,9 +1,9 @@
 ﻿using MediatR;
 using Transactions.Application.Wrappers;
 
-namespace Transactions.Application.Features.Cards.Commands.CreateCardCommand
+namespace Transactions.Application.Features.Transactions.Commands.CreateTransactionsCommand
 {
-    public class CreateCardCommand : IRequest<Response<string>>
+    public class CreateTransactionCommand : IRequest<Response<string>>
     {
         public string? Alias { get; set; }
 

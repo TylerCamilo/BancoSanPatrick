@@ -15,7 +15,7 @@ namespace Transactions.Persistence.Contexts
             _dateTimeService = dateTime;
         }
 
-        public DbSet<Card> Cards { get; set; }
+        //public DbSet<Card> Cards { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
