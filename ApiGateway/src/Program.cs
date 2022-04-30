@@ -9,6 +9,12 @@ var builder = WebApplication.CreateBuilder(args);
 //Adding Ocelot service  
 builder.Services.AddOcelot(); //inyectando dependencia  del using 
 
+builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
+{
+    builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+}));
+
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).
     AddJwtBearer(options =>
     {
@@ -37,6 +43,7 @@ builder.Host.ConfigureAppConfiguration((hosting, config) =>
 
 var app = builder.Build();
 
+app.UseCors("corsapp");
 app.UseAuthentication();
 app.UseOcelot().Wait();
 //app.MapGet("/", () => "Hello World!");
