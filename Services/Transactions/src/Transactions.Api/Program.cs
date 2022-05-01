@@ -1,3 +1,4 @@
+using Transactions.Api.Extensions;
 using Transactions.Application;
 using Transactions.Persistence;
 using Transactions.Shared;
@@ -27,6 +28,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseErrorHandlerMiddleware();
 
 app.UseHttpsRedirection();
 
