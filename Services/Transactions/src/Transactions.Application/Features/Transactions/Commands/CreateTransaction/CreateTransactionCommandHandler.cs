@@ -1,8 +1,7 @@
 ﻿using MediatR;
-using Transactions.Application.Features.Transactions.Commands.CreateTransactionsCommand;
 using Transactions.Application.Wrappers;
 
-namespace Transactions.Application.Features.Transactions.Commands.CreateCardCommand
+namespace Transactions.Application.Features.Transactions.Commands.CreateTransaction
 {
     public class CreateTransactionCommandHandler : IRequestHandler<CreateTransactionCommand, Response<string>>
     {
