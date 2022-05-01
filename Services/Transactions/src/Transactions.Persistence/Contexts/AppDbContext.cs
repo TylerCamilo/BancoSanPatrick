@@ -29,6 +29,7 @@ namespace Transactions.Persistence.Contexts
                         entry.Entity.ModifiedAt = _dateTimeService.NowUTC;
                         break;
                     case EntityState.Added:
+                        entry.Entity.Id = Guid.NewGuid().ToString();
                         entry.Entity.CreatedAt = _dateTimeService.NowUTC;
                         break;
                     default:
