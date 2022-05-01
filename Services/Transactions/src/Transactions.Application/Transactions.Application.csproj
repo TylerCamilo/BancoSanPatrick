@@ -19,8 +19,11 @@
     <Folder Include="Features\Transactions\Queries\GetAllTransactions\" />
     <Folder Include="Features\Transactions\Queries\GetTransactionById\" />
     <Folder Include="Filters\" />
-    <Folder Include="Mappings\" />
     <Folder Include="DTOs\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Transactions.Domain\Transactions.Domain.csproj" />
   </ItemGroup>
 
 </Project>
