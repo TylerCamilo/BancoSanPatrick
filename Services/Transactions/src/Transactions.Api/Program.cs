@@ -1,4 +1,6 @@
 using Transactions.Application;
+using Transactions.Persistence;
+using Transactions.Shared;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +9,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 //Add Application services
 builder.Services.AddApplicationExtensions();
+
+builder.Services.AddPersistenceExtensions(builder.Configuration);
+
+builder.Services.AddSharedInfraestructureExtensions();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

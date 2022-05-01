@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 using Transactions.Application.Interfaces;
 using Transactions.Domain.Common;
 using Transactions.Domain.Entities;
@@ -35,6 +36,11 @@ namespace Transactions.Persistence.Contexts
                 }
             }
             return  base.SaveChangesAsync(cancellationToken);
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
     }
 }
