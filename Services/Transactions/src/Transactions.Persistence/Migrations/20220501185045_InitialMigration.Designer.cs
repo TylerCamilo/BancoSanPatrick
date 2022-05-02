@@ -12,8 +12,8 @@ using Transactions.Persistence.Contexts;
 namespace Transactions.Persistence.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220501004934_TheFirstMigration")]
-    partial class TheFirstMigration
+    [Migration("20220501185045_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,8 +26,9 @@ namespace Transactions.Persistence.Migrations
 
             modelBuilder.Entity("Transactions.Domain.Entities.Transaction", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("text");
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
 
                     b.Property<decimal>("Amount")
                         .HasColumnType("numeric");
@@ -35,8 +36,8 @@ namespace Transactions.Persistence.Migrations
                     b.Property<decimal>("Balance")
                         .HasColumnType("numeric");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<long>("CreatedAt")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -50,8 +51,8 @@ namespace Transactions.Persistence.Migrations
                     b.Property<DateTime>("MadeAt")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime>("ModifiedAt")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<long>("ModifiedAt")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("ModifiedBy")
                         .IsRequired()
@@ -62,9 +63,10 @@ namespace Transactions.Persistence.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("character varying(10)");
 
-                    b.Property<int>("ReferenceNumber")
+                    b.Property<string>("ReferenceNumber")
+                        .IsRequired()
                         .HasMaxLength(10)
-                        .HasColumnType("integer");
+                        .HasColumnType("character varying(10)");
 
                     b.HasKey("Id");
 

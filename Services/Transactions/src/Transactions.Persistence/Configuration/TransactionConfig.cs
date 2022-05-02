@@ -16,17 +16,17 @@ namespace Transactions.Persistence.Configuration
 
             builder.Property(p => p.OriginCard)
                 .IsRequired()
-                .HasMaxLength(10); 
+                .HasMaxLength(16); 
 
             builder.Property(p => p.DestinationCard)
                 .IsRequired()
-                .HasMaxLength(10); 
+                .HasMaxLength(16); 
 
             builder.Property(p => p.Amount)
                 .IsRequired();
 
             builder.Property(p => p.ReferenceNumber)
-                .HasMaxLength(10)
+                .HasMaxLength(6)
                 .IsRequired();
         }
     }

@@ -4,6 +4,7 @@ namespace Transactions.Shared.Services
 {
     public class DateTimeService : IDateTimeService
     {
-        public DateTime NowUTC => DateTime.UtcNow;
+        public DateTime NowUTC => DateTime.Now;
+
     }
 }

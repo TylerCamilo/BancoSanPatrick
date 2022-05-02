@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using System.Text.Json;
+using Transactions.Application.Exceptions;
 using Transactions.Application.Wrappers;
 
 namespace Transactions.Api.Middlewares
@@ -15,8 +16,6 @@ namespace Transactions.Api.Middlewares
 
         public async Task Invoke(HttpContext context)
         {
-            
-
             try
             {
                 await _next(context);
@@ -30,11 +29,11 @@ namespace Transactions.Api.Middlewares
 
                 switch (error)
                 {
-                    case Application.Exceptions.ApiException e:
+                    case ApiException e:
                         response.StatusCode = (int)HttpStatusCode.BadRequest;
                         break;
 
-                    case Application.Exceptions.ValidationException e:
+                    case ValidationException e:
                         response.StatusCode = (int)HttpStatusCode.BadRequest;
                         responseModel.Errors = e.Errors;
                         break;

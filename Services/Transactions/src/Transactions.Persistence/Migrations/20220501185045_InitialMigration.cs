@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Transactions.Persistence.Migrations
 {
-    public partial class TheFirstMigration : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,17 +13,17 @@ namespace Transactions.Persistence.Migrations
                 name: "transactions",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "text", nullable: false),
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
                     Balance = table.Column<decimal>(type: "numeric", nullable: false),
                     OriginCard = table.Column<string>(type: "character varying(10)", maxLength: 10, nullable: false),
                     DestinationCard = table.Column<string>(type: "character varying(10)", maxLength: 10, nullable: false),
                     Amount = table.Column<decimal>(type: "numeric", nullable: false),
-                    ReferenceNumber = table.Column<int>(type: "integer", maxLength: 10, nullable: false),
+                    ReferenceNumber = table.Column<string>(type: "character varying(10)", maxLength: 10, nullable: false),
                     MadeAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     CreatedBy = table.Column<string>(type: "text", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    CreatedAt = table.Column<long>(type: "bigint", nullable: false),
                     ModifiedBy = table.Column<string>(type: "text", nullable: false),
-                    ModifiedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    ModifiedAt = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -33,8 +33,7 @@ namespace Transactions.Persistence.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "transactions");
+            
         }
     }
 }

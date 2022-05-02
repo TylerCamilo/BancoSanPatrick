@@ -25,12 +25,10 @@ namespace Transactions.Persistence.Contexts
             {
                 switch (entry.State)
                 {
-                    case EntityState.Modified:
-                        entry.Entity.ModifiedAt = _dateTimeService.NowUTC;
-                        break;
                     case EntityState.Added:
-                        entry.Entity.Id = Guid.NewGuid().ToString();
+                        //entry.Entity.Id = Guid.NewGuid();
                         entry.Entity.CreatedAt = _dateTimeService.NowUTC;
+                        entry.Entity.CreatedBy = "system";
                         break;
                     default:
                         break;
@@ -43,5 +41,6 @@ namespace Transactions.Persistence.Contexts
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
+
     }
 }

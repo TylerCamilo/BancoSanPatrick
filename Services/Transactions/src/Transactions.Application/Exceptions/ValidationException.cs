@@ -2,7 +2,7 @@
 
 namespace Transactions.Application.Exceptions
 {
-    public class ValidationException : Exception
+    public class ValidationException : ApplicationException
     {
         public List<string> Errors { get;}
 

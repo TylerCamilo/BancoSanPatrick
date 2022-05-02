@@ -17,6 +17,8 @@ namespace Transactions.Persistence
 
                 ));
 
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
             #region
             services.AddTransient(typeof(IRepositoryAsync<>), typeof(RespositoryAsync<>));
             #endregion

@@ -6,7 +6,7 @@ using Transactions.Domain.Entities;
 
 namespace Transactions.Application.Features.Transactions.Commands.CreateTransaction
 {
-    public class CreateTransactionCommandHandler : IRequestHandler<CreateTransactionCommand, Response<string>>
+    public class CreateTransactionCommandHandler : IRequestHandler<CreateTransactionCommand, Response<Guid>>
     {
         private readonly IRepositoryAsync<Transaction> _repositoryAsync;
         private readonly IMapper _mapper;
@@ -17,12 +17,12 @@ namespace Transactions.Application.Features.Transactions.Commands.CreateTransact
             _mapper = mapper;
         }
 
-        public async Task<Response<string>> Handle(CreateTransactionCommand request, CancellationToken cancellationToken)
+        public async Task<Response<Guid>> Handle(CreateTransactionCommand request, CancellationToken cancellationToken)
         {
             var record = _mapper.Map<Transaction>(request);
             var data = await _repositoryAsync.AddAsync(record);
 
-            return new Response<string>(data.Id);
+            return new Response<Guid>(data.Id);
 
 
         }

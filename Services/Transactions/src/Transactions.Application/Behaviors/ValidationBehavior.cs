@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 using MediatR;
-
+using ValidationException = Transactions.Application.Exceptions.ValidationException;
 
 namespace Transactions.Application.Behaviors
 {
@@ -21,9 +21,9 @@ namespace Transactions.Application.Behaviors
                 var validationResults = await Task.WhenAll(_validators.Select(v => v.ValidateAsync(context, cancellationToken)));
                 var failures = validationResults.SelectMany(r => r.Errors).Where(f => f != null).ToList();
 
-                if(failures.Count != 0)
+                if (failures.Count != 0)
                 {
-                    throw new Exceptions.ValidationException(failures);
+                    throw new ValidationException(failures);
                 }
             }
             return await next();

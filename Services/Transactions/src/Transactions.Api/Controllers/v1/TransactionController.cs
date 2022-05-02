@@ -8,7 +8,7 @@ namespace Transactions.Api.Controllers.v1
     public class TransactionController : BaseApiController
     {
         [HttpPost]
-        public async Task<IActionResult> Post(CreateTransactionCommand command)
+        public async Task<IActionResult> Post([FromBody]CreateTransactionCommand command)
         {
             return Ok(await Mediator.Send(command));
         }

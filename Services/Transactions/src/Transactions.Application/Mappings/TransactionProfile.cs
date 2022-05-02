@@ -4,9 +4,9 @@ using Transactions.Domain.Entities;
 
 namespace Transactions.Application.Mappings
 {
-    public class TansactionProfile : Profile
+    public class TransactionProfile : Profile
     {
-        public TansactionProfile()
+        public TransactionProfile()
         {
             #region Commands
             CreateMap<CreateTransactionCommand, Transaction>();
