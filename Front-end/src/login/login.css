@@ -1,0 +1,258 @@
+:root {
+  --color-theme: rgb(145, 145, 145);
+}
+
+.img {
+  float: left;
+}
+
+.cardlogin {
+  transform: translateY(20%);
+}
+
+.general {
+  overflow: hidden;
+  background-color: #eff3fc;
+  overflow-y: auto;
+}
+.list-container {
+  margin: 0px auto;
+  width: 400px;
+  border: none;
+  border-color: var(--color-theme);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  box-shadow: 2px 4px 4px rgba(146, 146, 146, 0.25);
+}
+.list-container .lists {
+  display: flex;
+}
+.list-container .lists li {
+  list-style: none;
+}
+.list-container .lists li a {
+  width: 200;
+  text-decoration: none;
+  margin-right: 0px;
+  margin-left: 0px;
+  padding: 4px;
+  border-radius: 10px;
+  transition: 0.3s;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.list-container .lists li {
+  text-align: center;
+  color: var(--color-theme);
+  width: 47.5%;
+  margin-left: 1%;
+  border-radius: 10px;
+}
+
+.list-container .lists li a:hover, .list-container .lists li a:focus{
+  background: linear-gradient(90deg, #007e40 0%, #00b855 100%);
+  border-radius: 8px;
+  color: #ffffff;
+}
+
+.list-container .lists li:hover, .list-container .lists li:focus{
+  background: var(--color-theme);
+  color: #ffffff;
+}
+
+.formulario {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+label {
+  color: var(--color-theme);
+}
+
+input {
+  height: 30px;
+  width: 400px;
+  border: none;
+  border-radius: 10px;
+  color: var(--color-theme);
+  margin-bottom: 1rem;
+  box-shadow: 2px 4px 4px rgba(146, 146, 146, 0.25);
+}
+
+.recuperar {
+  display: flex;
+  justify-content: right;
+  margin-bottom: 1rem;
+}
+a {
+  text-decoration: none;
+  color: var(--color-theme);
+}
+.division {
+  width: 50%;
+  float: left;
+}
+.img.division img {
+  width: 100%;
+  flex: 1;
+}
+
+.img.division {
+  display: -ms-flex;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.cardlogin.division .lists {
+  margin-right: 0px;
+  margin-left: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  width: 100%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+.cardlogin.division a {
+  display: block;
+}
+.iconosCuentas {
+  color: #007e40;
+}
+
+.iconosCuentas:hover, .iconosCuentas:focus{
+  color: #ffffff;
+}
+
+.list-container .lists li a:hover .iconosCuentas,
+.list-container .lists li a:hover .botonCardLogin,
+.list-container .lists li a:focus .iconosCuentas,
+.list-container .lists li a:focus .botonCardLogin{
+  color: #ffffff;
+}
+.list-container .lists li a:hover, .list-container .lists li a:focus{
+  border-radius: 8px;
+}
+
+.cardlogin.division .list-container,
+#CardNumber,
+#Pin,
+.btn-acceder {
+  height: 48.67px;
+}
+.btn-acceder {
+  padding-top: 17.33px;
+  padding-bottom: 31.34px;
+  background: linear-gradient(90deg, #007e40 0%, #00b855 100%);
+  border-radius: 8px;
+  height: 30px;
+  width: 400px;
+  color: #ffffff;
+  border-width: 0px;
+}
+
+.btn-acceder:hover {
+  background: #ffffff;
+  color: #000000;
+  border-color: #000000;
+}
+
+.logoMasTitulo {
+  width: 400px;
+  margin: 0px auto;
+  margin-bottom: 70px;
+}
+
+.logoMasTitulo img {
+  float: left;
+}
+
+.titulo {
+  width: 361px;
+  margin-left: 50px;
+}
+
+.sombra {
+  width: 393px;
+  height: 23px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 126, 64, 0.65) 0%,
+    rgba(0, 184, 85, 0.65) 100%
+  );
+  filter: blur(9px);
+  border-radius: 8px;
+  position: relative;
+  z-index: -1;
+  top: -15px;
+  left: 5px;
+}
+
+.btn-acceder:hover + .sombra {
+  background: #eff3fc;
+}
+
+@media only screen and (max-width: 880px) {
+  .container{
+    width: 408px;
+    margin: auto;
+  }
+  .img.division {
+    display: none;
+  }
+  .formulario {
+    display: inherit;
+  }
+  .list-container, .logoMasTitulo {
+    margin: inherit;
+  }
+  .cardlogin.division{
+    width: 100vw;
+  }
+  .recuperar{
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 408px) {
+  .wrapper, .cardlogin.division, .list-container, .container, .btn-acceder, input{
+    width: 100vw;
+  }
+}
+
+@media only screen and (max-width: 361px) {
+  .primeraLinea::after{
+    content: "\a";
+    white-space: pre;
+}
+.logoMasTitulo{
+  width: 100vw;
+}
+.logoMasTitulo img{
+  float: inherit;
+  display: block;
+  margin: auto;
+}
+.primeraLinea{
+  width: 92.02px;
+  margin: 0 auto;
+  display: block;
+}
+.segundaLinea{
+  width: 167.08px;
+  margin: 0 auto;
+    display: block;
+}
+.titulo{
+  width: 100vw;
+  margin-left: 0px;
+}
+
+}
